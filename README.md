@@ -6,7 +6,7 @@ Experiments with Metrics to Datadog from Azure Functions
 
 ## Usage
 
-There are 2 attributes `DatadogMetric` and `DatadogMetrics`.
+There are 2 attributes `DatadogMetric` and `DatadogMetrics` that allow for output binding of metrics.
 
 Use `DatadogMetric` for a single metric from the function, sent once the code in the function has executed.
 
