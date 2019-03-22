@@ -17,10 +17,7 @@ public static void Run1(
     [DatadogMetric] out Metric metric, 
     ILogger log)
 {
-    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     metric = Metric.Gauge("metric.name.test", 10, "test", "datadog", "azure-functions");
-    log.LogInformation($"C# Timer trigger function finished at: {DateTime.Now}");
-
 }
 ```
 
@@ -33,10 +30,7 @@ public static void Run2(
     [DatadogMetric] ICollector<Metric> metrics,
     ILogger log)
 {
-    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     metrics.Add(Metric.Gauge("metric.name.test", 10, "test", "datadog", "azure-functions"));
-    log.LogInformation($"C# Timer trigger function finished at: {DateTime.Now}");
-
 }
 ```
 
@@ -50,10 +44,8 @@ public static void Run3(
     ILogger log)
 {
     metrics = new Metrics();
-    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     metrics.Gauge("metric.name.testgauge", 10, "test", "datadog", "azure-functions");
     metrics.Rate("metric.name.testrate", 20, 5, "test", "datadog", "azure-functions");
     metrics.Count("metric.name.testcount", 20, "test", "datadog", "azure-functions");
-    log.LogInformation($"C# Timer trigger function finished at: {DateTime.Now}");
 }
 ```
